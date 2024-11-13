@@ -55,6 +55,17 @@ cd mods
 declare -A mods=(
     ["JEI"]="https://www.curseforge.com/minecraft/mc-mods/jei/download/5846880"
     ["BALM"]="https://www.curseforge.com/minecraft/mc-mods/balm/install/5848102"
+    ["WAYSTONE"]="https://www.curseforge.com/minecraft/mc-mods/waystones/install/5841763"
+    ["AUTOPLANTER"]="https://cdn.modrinth.com/data/DXtdbdDH/versions/ecD08Lf1/AutoPlanter-Forge-1.21.1-21.1.1.jar"
+    ["OPLENTY"]="https://cdn.modrinth.com/data/HXF82T3G/versions/rM5ofJWs/BiomesOPlenty-forge-1.21.1-21.1.0.7.jar"
+    ["COLLECTIVE"]="https://cdn.modrinth.com/data/e0M1UDsY/versions/nwmUrrgY/collective-1.21.1-7.87.jar"
+    ["FALLING"]="https://cdn.modrinth.com/data/Fb4jn8m6/versions/c04fsPim/FallingTree-1.21.1-1.21.1.2.jar"
+    ["GLITCH"]="https://cdn.modrinth.com/data/s3dmwKy5/versions/PCy0sobG/GlitchCore-forge-1.21.1-2.1.0.0.jar"
+    ["HEALTH"]="https://www.curseforge.com/minecraft/mc-mods/health-indicator-txf/install/5846530"
+    ["JOURNEY"]="https://www.curseforge.com/minecraft/mc-mods/journeymap/install/5789363"
+    ["ORE"]="https://cdn.modrinth.com/data/Xiv4r347/versions/ugXfLS9y/oreharvester-1.21.1-1.4.jar"
+    ["STRUCTURES"]="https://cdn.modrinth.com/data/j3FONRYr/versions/IGlyM8iH/Structory_Towers_1.21.x_v1.0.9.jar"
+    ["TERRA"]="https://cdn.modrinth.com/data/kkmrDlKT/versions/4OYhD4bm/TerraBlender-forge-1.21.1-4.1.0.5.jar"
 )
 
 # Descargar cada mod
