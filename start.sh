@@ -22,10 +22,17 @@ sudo mv paper-1.21.1-131.jar server
 echo "Creando el script para iniciar el servidor de Minecraft..."
 cat > r_start_server.sh <<EOL
 #!/bin/bash
-# Iniciar el servidor de Minecraft con 1GB de RAM mínima y 2GB de RAM máxima
-java -Xms1G -Xmx2G -jar paper-1.21.1-131.jar nogui
+java -Xms2G -Xmx2G -jar paper-1.21.1-131.jar nogui
 EOL
 sudo mv r_start_server.sh server
+
+# Crear el script para iniciar el servidor.
+echo "Creando el script para serveo..."
+cat > r_serveo.sh <<EOL
+#!/bin/bash
+ssh -R 25565:localhost:25565 serveo.net
+EOL
+sudo mv r_serveo.sh server
 
 # Dar permisos de ejecución a los scripts.
 cd server
