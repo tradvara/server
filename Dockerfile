@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim
 RUN apt-get update && apt-get install -y wget unzip curl
 
 # Descargar Paper para el servidor de Minecraft
-RUN wget https://papermc.io/api/v2/projects/paper/versions/1.21/builds/131/downloads/paper-1.21.1-131.jar -O /paper.jar
+RUN wget -O server.jar https://api.papermc.io/v2/projects/paper/versions/1.21.1/builds/131/downloads/paper-1.21.1-131.jar
 
 # Copiar el script para iniciar el servidor de Minecraft
 COPY start_minecraft.sh /start_minecraft.sh
@@ -20,4 +20,4 @@ RUN chmod +x /start_minecraft.sh /start_ngrok.sh
 EXPOSE 25565
 
 # Comando para iniciar el servidor
-CMD ["/start_minecraft.sh"]
+CMD ["bash", "-c", "/start_ngrok.sh & /start_minecraft.sh"]
