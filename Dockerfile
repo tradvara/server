@@ -1,26 +1,23 @@
-# Usa una imagen base de Java
-FROM openjdk:17-jdk-alpine
+# Usa una imagen base con OpenJDK 17
+FROM openjdk:17-jdk-slim
 
-# Crea y define el directorio de trabajo
-WORKDIR /minecraft
+# Instalar Ngrok
+RUN apt-get update && apt-get install -y wget unzip && \
+    wget https://bin.equinox.io/c/4VmDzA7iaJ7/ngrok-stable-linux-amd64.zip && \
+    unzip ngrok-stable-linux-amd64.zip && \
+    mv ngrok /usr/local/bin/
 
-# Descarga el archivo paper.jar
-RUN wget -O server.jar https://api.papermc.io/v2/projects/paper/versions/1.21.1/builds/131/downloads/paper-1.21.1-131.jar
+# Establecer la variable de entorno para el authtoken de Ngrok
+ENV NGROK_AUTHTOKEN=tu_authtoken_aqui
 
-# Descarga e instala Ngrok
-RUN wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip && \
-    unzip ngrok-stable-linux-amd64.zip -d /usr/local/bin && \
-    rm ngrok-stable-linux-amd64.zip
+# Copiar el archivo de inicio al contenedor
+COPY start_minecraft.sh /start_minecraft.sh
 
-# Copia el archivo de inicio
-COPY start.sh .
+# Dar permisos de ejecución
+RUN chmod +x /start_minecraft.sh
 
-# Da permisos de ejecución al script
-RUN chmod +x start.sh /usr/local/bin/ngrok
+# Copiar el archivo .jar del servidor de Minecraft
+COPY paper-1.21.1-131.jar /paper-1.21.1-131.jar
 
-# Exponer el puerto de Minecraft
-EXPOSE 25565
-
-# Comando de inicio
-CMD ["./start.sh"]
-
+# Configurar el script para usar el authtoken de Ngrok y luego iniciar el servidor
+CMD /start_minecraft.sh
