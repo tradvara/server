@@ -9,7 +9,7 @@
 echo "Verificando la instalación de Java..."
 java -version
 
-rmdir server
+sudo rmdir server
 mkdir -p server
 sudo chmod u+w /server
 
@@ -33,8 +33,14 @@ sudo mv r_start_server.sh server
 cd server
 chmod +x r_*
 
+# Crea plugins
+mkdir plugins
+cd plugins
+cd /home/tu_usuario/minecraft/plugins
+wget https://github.com/AuthMe/AuthMeReloaded/releases/download/5.6.0/AuthMe-5.6.0-legacy.jar
+
 # Mensaje final
-echo "¡Todo listo! Ahora puedes ejecutar el servidor con './start-server.sh'."
+echo "¡Todo listo! Ahora puedes ejecutar el servidor con './r_start_server.sh'."
 
 # Finalizar el script
 exit 0
